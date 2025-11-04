@@ -1,302 +1,337 @@
-# 🧠 15 Papers That Defined NLP & LLMs (2017–2025)
+<h1 align="center">🧠 15 Papers That Defined NLP & LLMs (2017–2025)</h1>
 
-### *The Ultimate Reading Stack for AI Researchers & Builders*
+<h3 align="center">The Ultimate Reading Stack for AI Researchers & Builders</h3>
 
-If I had to understand how **modern language models evolved**, these are the papers I’d study — in order.  
-They don’t just explain *what* happened — they reveal *how* today’s generative AI was built, one breakthrough at a time.
-
----
-
-## 🧩 1. [Attention Is All You Need (2017)](https://lnkd.in/gh84Xb-C)
-**Authors:** Vaswani et al. (Google Brain)
-
-### 🔍 Summary
-This paper introduced the **Transformer architecture**, replacing recurrence with *self-attention* — allowing models to process sequences in parallel.
-
-### 💡 Key Innovations
-- **Self-Attention Mechanism:** Captures dependencies regardless of distance between tokens.  
-- **Positional Encoding:** Adds order information to non-sequential inputs.  
-- **Parallelization:** Enables large-scale training on GPUs.  
-- **Multi-Head Attention:** Allows multiple representation subspaces.
-
-### 🌍 Impact
-- Foundation of **GPT, BERT, T5, and almost every LLM**.
-- Made **massive pretraining** and **scaling** possible.
-- Marked the **end of RNNs and LSTMs** as dominant architectures.
+<p align="center">
+If you want to understand how modern language models evolved — these 15 papers form the foundation.<br>
+They don’t just explain <em>what</em> happened — they reveal <em>how the field was built.</em>
+</p>
 
 ---
 
-## 🔁 2. [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding (2018)](https://lnkd.in/gvCbb2jy)
-**Authors:** Devlin et al. (Google AI Language)
+## 📘 Table of Contents
 
-### 🔍 Summary
-BERT introduced **bidirectional context understanding** and **transfer learning** for NLP — changing how models are trained and reused.
-
-### 💡 Key Innovations
-- **Masked Language Modeling (MLM):** Randomly masks tokens and predicts them.  
-- **Next Sentence Prediction (NSP):** Captures relationships between sentences.  
-- **Fine-Tuning Paradigm:** Pretrain once, fine-tune for multiple downstream tasks.
-
-### 🌍 Impact
-- Achieved SOTA on 11 NLP benchmarks.  
-- Spawned numerous derivatives — **RoBERTa, ALBERT, DistilBERT, ELECTRA**.  
-- Established the *pretrain → fine-tune* framework as standard.
-
----
-
-## 🚀 3. [GPT-3: Language Models Are Few-Shot Learners (2020)](https://lnkd.in/gdn3D6gg)
-**Authors:** Brown et al. (OpenAI)
-
-### 🔍 Summary
-GPT-3 proved that **scale itself is a form of learning**. With 175 billion parameters, it could learn from just a few examples — no fine-tuning required.
-
-### 💡 Key Innovations
-- **In-Context Learning:** Models learn from examples inside the prompt.  
-- **Emergent Behavior:** New reasoning abilities appeared as size increased.  
-- **Prompt Engineering:** The prompt became the new programming interface.
-
-### 🌍 Impact
-- Showed that *bigger = smarter* (up to a limit).  
-- Shifted research toward **scaling laws** and **data quality**.  
-- Set the stage for ChatGPT and modern conversational AI.
+1. [Attention Is All You Need (2017)](#1-attention-is-all-you-need-2017)  
+2. [BERT (2018)](#2-bert-2018)  
+3. [GPT-3: Few-Shot Learners (2020)](#3-gpt-3-language-models-are-few-shot-learners-2020)  
+4. [T5: Text-to-Text Framework (2020)](#4-t5-2020)  
+5. [Scaling Laws (2020)](#5-scaling-laws-2020)  
+6. [RAG: Retrieval-Augmented Generation (2020)](#6-rag-2020)  
+7. [LoRA (2021)](#7-lora-2021)  
+8. [Chain-of-Thought Prompting (2022)](#8-chain-of-thought-prompting-2022)  
+9. [Self-Consistency (2022)](#9-self-consistency-2022)  
+10. [In-Context Learning & Induction Heads (2022)](#10-in-context-learning--induction-heads-2022)  
+11. [Instruction Tuning (2022)](#11-instruction-tuning-2022)  
+12. [Toolformer (2023)](#12-toolformer-2023)  
+13. [ColBERTv2 (2022)](#13-colbertv2-2022)  
+14. [LLMs as a Judge (2023)](#14-llms-as-a-judge-2023)  
+15. [DeepSeek-R1 (2025)](#15-deepseek-r1-2025)
 
 ---
 
-## 🔤 4. [T5: Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (2020)](https://lnkd.in/gDNU-XSF)
-**Authors:** Raffel et al. (Google Research)
+## 1. Attention Is All You Need (2017)
+📄 [Paper Link](https://lnkd.in/gh84Xb-C)  
+**Authors:** Vaswani et al., Google Brain
 
-### 🔍 Summary
-T5 redefined all NLP tasks as **text-to-text problems**, unifying translation, summarization, and question answering under one model.
+### Overview
+The paper that introduced the **Transformer architecture**, eliminating recurrence and enabling **massive parallelization**.
 
-### 💡 Key Innovations
-- **Unified Framework:** Every task formulated as “text in → text out.”  
-- **Cleaner Pretraining Corpus (C4):** Emphasized data quality over quantity.  
-- **Scalable Design:** Seamlessly adapted to large-scale models.
+### Key Contributions
+- **Self-Attention:** Captures long-range dependencies efficiently.  
+- **Positional Encoding:** Adds sequence order to parallel inputs.  
+- **Multi-Head Attention:** Learns multiple representation subspaces.  
+- **Feedforward Layers:** Simplifies computation and scaling.
 
-### 🌍 Impact
-- Simplified multi-task learning.  
-- Influenced architectures like **FLAN-T5**, **PaLM**, and **Gemini**.
-
----
-
-## 📈 5. [Scaling Laws for Neural Language Models (2020)](https://lnkd.in/gswH6-3v)
-**Authors:** Kaplan et al. (OpenAI)
-
-### 🔍 Summary
-Discovered **predictable relationships** between model size, dataset size, and performance — establishing a mathematical roadmap for scaling.
-
-### 💡 Key Insights
-- **Power Laws:** Performance follows consistent scaling curves.  
-- **Compute Optimality:** Balance parameters, data, and compute for efficiency.  
-- **Forecasting:** Future model performance can be *predicted* via scaling.
-
-### 🌍 Impact
-- Guided LLM scaling strategy for GPT-3, PaLM, Chinchilla, and others.  
-- Defined the science behind *“bigger is better”* until compute limits.
+### Impact
+- Foundation for **BERT, GPT, T5**, and all modern LLMs.  
+- Replaced RNNs/LSTMs in NLP and beyond (vision, speech, protein folding).
 
 ---
 
-## 🔍 6. [RAG: Retrieval-Augmented Generation (2020)](https://lnkd.in/gyu_ZiJy)
-**Authors:** Lewis et al. (Facebook AI)
+## 2. BERT (2018)
+📄 [Paper Link](https://lnkd.in/gvCbb2jy)  
+**Authors:** Devlin et al., Google AI Language
 
-### 🔍 Summary
-Merged **retrieval** and **generation**, enabling LLMs to access **external knowledge bases** dynamically.
+### Overview
+Introduced **bidirectional pretraining** and **transfer learning** for NLP tasks.
 
-### 💡 Key Innovations
-- **Retriever + Generator Architecture:** Combines dense retrievers with generative models.  
-- **Grounded Responses:** Produces more factual and up-to-date outputs.  
-- **Open-Domain QA Applications.**
+### Key Contributions
+- **Masked Language Modeling (MLM)** and **Next Sentence Prediction (NSP)**.  
+- **Pretrain + Fine-tune Paradigm** standardized across NLP.  
+- Enabled reuse of one model for diverse downstream tasks.
 
-### 🌍 Impact
-- Inspired **RAG pipelines, LangChain, and modern retrieval-augmented LLM systems**.  
-- A step toward *knowledge-grounded AI.*
-
----
-
-## 💡 7. [LoRA: Low-Rank Adaptation of Large Language Models (2021)](https://lnkd.in/gYREMpEA)
-**Authors:** Hu et al. (Microsoft)
-
-### 🔍 Summary
-LoRA made **fine-tuning efficient and cheap** by updating only low-rank matrices — not full model weights.
-
-### 💡 Key Innovations
-- **Low-Rank Decomposition:** Reduces trainable parameters by 90%+.  
-- **Plug-and-Play:** Integrates easily with existing models.  
-- **Scalable Adaptation:** Enables per-task fine-tuning on massive models.
-
-### 🌍 Impact
-- Democratized model adaptation.  
-- Used widely in **LLaMA**, **Falcon**, and **community fine-tuning.**
+### Impact
+- Set SOTA on 11 NLP benchmarks.  
+- Inspired successors like **RoBERTa**, **DistilBERT**, and **ELECTRA**.  
+- Made pretraining a universal NLP strategy.
 
 ---
 
-## 🧩 8. [Chain-of-Thought Prompting (2022)](https://lnkd.in/gvwt8TJZ)
-**Authors:** Wei et al. (Google Brain)
+## 3. GPT-3: Language Models Are Few-Shot Learners (2020)
+📄 [Paper Link](https://lnkd.in/gdn3D6gg)  
+**Authors:** Brown et al., OpenAI
 
-### 🔍 Summary
-Introduced a way to **explicitly encourage reasoning** by prompting models to “think step-by-step.”
+### Overview
+Demonstrated that **scaling** model parameters leads to emergent intelligence and reasoning.
 
-### 💡 Key Innovations
-- **Decompositional Reasoning:** Generates intermediate logical steps.  
-- **Enhanced Compositionality:** Tackles multi-step tasks.  
-- **Foundation for reasoning LLMs** like GPT-4 and Claude.
+### Key Contributions
+- **175B parameters**, trained on diverse datasets.  
+- **In-Context Learning:** Models learn from prompts dynamically.  
+- Introduced **prompt-based interaction** as the new interface.
 
-### 🌍 Impact
-- Sparked reasoning-centric prompting research.  
-- Basis for **tool use**, **self-consistency**, and **reflexive LLMs**.
+### Impact
+- Revolutionized AI through **few-shot prompting**.  
+- Paved the way for **ChatGPT** and conversational LLMs.
 
 ---
 
-## 🔁 9. [Self-Consistency Improves Chain-of-Thought Reasoning (2022)](https://lnkd.in/gG_R2NHa)
+## 4. T5: Exploring the Limits of Transfer Learning (2020)
+📄 [Paper Link](https://lnkd.in/gDNU-XSF)  
+**Authors:** Raffel et al., Google Research
+
+### Overview
+Unified all NLP tasks into a **text-to-text** framework.
+
+### Key Contributions
+- Converts every task into “input text → output text.”  
+- Introduced the **C4 dataset**, emphasizing data quality.  
+- Simplified the architecture for extensibility.
+
+### Impact
+- Inspired **FLAN-T5**, **PaLM**, and **Gemini** models.  
+- Unified NLP into a single consistent paradigm.
+
+---
+
+## 5. Scaling Laws (2020)
+📄 [Paper Link](https://lnkd.in/gswH6-3v)  
+**Authors:** Kaplan et al., OpenAI
+
+### Overview
+Quantified how performance improves predictably with **model size, dataset size, and compute**.
+
+### Key Contributions
+- Established **power-law relationships** in training.  
+- Defined the concept of **compute-optimal scaling**.  
+- Enabled future models to be sized systematically.
+
+### Impact
+- Blueprint for building GPT-3, Chinchilla, PaLM.  
+- Moved the field toward **empirical scaling science**.
+
+---
+
+## 6. RAG: Retrieval-Augmented Generation (2020)
+📄 [Paper Link](https://lnkd.in/gyu_ZiJy)  
+**Authors:** Lewis et al., Facebook AI
+
+### Overview
+Merged **retrieval-based knowledge** with **generation** for factual and dynamic outputs.
+
+### Key Contributions
+- **Retriever + Generator hybrid architecture.**  
+- Integrates **external knowledge** for grounding.  
+- Enables up-to-date, explainable results.
+
+### Impact
+- Core principle behind **LangChain**, **RAG pipelines**, and **chatbots with context memory**.
+
+---
+
+## 7. LoRA: Low-Rank Adaptation (2021)
+📄 [Paper Link](https://lnkd.in/gYREMpEA)  
+**Authors:** Hu et al., Microsoft
+
+### Overview
+Reduced fine-tuning costs by learning low-rank weight updates instead of retraining entire models.
+
+### Key Contributions
+- **Parameter-efficient adaptation.**  
+- Works with minimal storage and compute.  
+- Easy integration with any pre-trained model.
+
+### Impact
+- Popularized **lightweight model adaptation**.  
+- Used extensively in open-source LLM fine-tuning (LLaMA, Falcon, etc.).
+
+---
+
+## 8. Chain-of-Thought Prompting (2022)
+📄 [Paper Link](https://lnkd.in/gvwt8TJZ)  
+**Authors:** Wei et al., Google Brain
+
+### Overview
+Enabled **reasoning and multi-step problem-solving** by encouraging models to think aloud.
+
+### Key Contributions
+- Prompt models to generate **intermediate reasoning steps**.  
+- Handles complex mathematical and logical problems.  
+- The foundation of reasoning-centric prompting.
+
+### Impact
+- Used in **GPT-4**, **Claude**, and **Gemini reasoning tasks**.  
+- Started the *“Let’s think step by step”* revolution.
+
+---
+
+## 9. Self-Consistency (2022)
+📄 [Paper Link](https://lnkd.in/gG_R2NHa)  
 **Authors:** Wang et al.
 
-### 🔍 Summary
-Improved reasoning reliability by **sampling multiple chains** and using a **majority vote** to decide the final answer.
+### Overview
+Improved reasoning reliability via **multiple reasoning samples** and majority voting.
 
-### 💡 Key Innovations
-- **Voting Mechanism:** Multiple reasoning paths → consensus output.  
-- **Reduced Hallucinations:** Avoids one-off reasoning errors.  
-- **Generalizable Approach:** Works across reasoning tasks.
+### Key Contributions
+- Introduced **consensus-based reasoning.**  
+- Significantly reduces hallucinations.  
+- Increases consistency in structured reasoning.
 
-### 🌍 Impact
-- Increased LLM robustness.  
-- Integral to **self-verifying models** like Gemini and DeepSeek.
-
----
-
-## 🧬 10. [In-Context Learning and Induction Heads (2022)](https://lnkd.in/gm9JCBWy)
-**Authors:** Olsson et al. (Anthropic)
-
-### 🔍 Summary
-Explored **mechanistic interpretability** — discovering *how* LLMs perform in-context learning through **induction heads**.
-
-### 💡 Key Insights
-- **Attention Patterns:** Show models learn to repeat and generalize sequences.  
-- **Learning Without Gradients:** Revealed internal pattern-matching behaviors.  
-- **Interpretability Frontier:** First step in *understanding neural circuits.*
-
-### 🌍 Impact
-- Advanced transparency and safety research.  
-- Crucial for debugging LLM reasoning.
+### Impact
+- Integral to **self-verifying LLM architectures**.  
+- Builds trust in autonomous decision-making models.
 
 ---
 
-## 💬 11. [Instruction Tuning (2022)](https://lnkd.in/gNaknD4F)
-**Authors:** Ouyang et al. (OpenAI)
+## 10. In-Context Learning & Induction Heads (2022)
+📄 [Paper Link](https://lnkd.in/gm9JCBWy)  
+**Authors:** Olsson et al., Anthropic
 
-### 🔍 Summary
-Showed that models can learn to follow human instructions using curated **instruction–response pairs**.
+### Overview
+Investigated how transformers internally perform **learning from context** without gradient updates.
 
-### 💡 Key Innovations
-- **Human Alignment:** Models align better with user intent.  
-- **Multi-Task Generalization:** Performs well across diverse tasks.  
-- **No Retraining Required:** Builds on pretrained checkpoints.
+### Key Contributions
+- Discovered **induction heads** performing implicit pattern recognition.  
+- Introduced **mechanistic interpretability** to explain model internals.
 
-### 🌍 Impact
-- Foundation of **InstructGPT**, **ChatGPT**, and **alignment research.**  
-- Shifted focus from *accuracy → helpfulness*.
-
----
-
-## 🧰 12. [Toolformer (2023)](https://lnkd.in/gMXePE6P)
-**Authors:** Schick et al. (Meta AI)
-
-### 🔍 Summary
-LLMs that **teach themselves to use tools and APIs** autonomously.
-
-### 💡 Key Innovations
-- **Self-Supervised Tool Use:** Model annotates its own dataset.  
-- **API Integration:** Calls external calculators, translators, etc.  
-- **Foundation for Agentic AI.**
-
-### 🌍 Impact
-- Enabled **LLM agents** and **function-calling architectures.**  
-- Precursors to **OpenAI’s GPTs and autonomous agents.**
+### Impact
+- Major step toward **transparent and interpretable LLMs**.  
+- Foundation for safety and explainability research.
 
 ---
 
-## ⚙️ 13. [ColBERTv2: Efficient and Effective Passage Search (2022)](https://lnkd.in/g_N2tT3g)
+## 11. Instruction Tuning (2022)
+📄 [Paper Link](https://lnkd.in/gNaknD4F)  
+**Authors:** Ouyang et al., OpenAI
+
+### Overview
+Taught models to follow human instructions using curated datasets of tasks and responses.
+
+### Key Contributions
+- Transitioned LLMs from raw text generation to **task following**.  
+- Created **InstructGPT**, precursor to ChatGPT.  
+- Enabled generalized conversational alignment.
+
+### Impact
+- Sparked the **alignment revolution** in AI.  
+- Central to responsible and helpful AI systems.
+
+---
+
+## 12. Toolformer (2023)
+📄 [Paper Link](https://lnkd.in/gMXePE6P)  
+**Authors:** Schick et al., Meta AI
+
+### Overview
+Introduced LLMs that autonomously **learn to use APIs and external tools**.
+
+### Key Contributions
+- Self-supervised training for **tool usage**.  
+- Integrates **external computation** dynamically.  
+- Early framework for autonomous AI agents.
+
+### Impact
+- Paved the way for **agentic AI systems** and **function-calling models**.  
+- Inspired **OpenAI GPTs** and **AutoGPT architectures**.
+
+---
+
+## 13. ColBERTv2 (2022)
+📄 [Paper Link](https://lnkd.in/g_N2tT3g)  
 **Authors:** Santhanam et al.
 
-### 🔍 Summary
-Balanced **retrieval accuracy and efficiency** using late interaction mechanisms.
+### Overview
+Balanced **retrieval efficiency** with **semantic precision** through late interaction mechanisms.
 
-### 💡 Key Innovations
-- **Late Interaction:** Maintains token-level semantics without high cost.  
-- **Compact Indexes:** Enables billion-scale retrieval.  
-- **High-Precision Matching.**
+### Key Contributions
+- Retains fine-grained token embeddings.  
+- Compresses large corpora without losing accuracy.  
+- Enables real-time large-scale information retrieval.
 
-### 🌍 Impact
-- Core component in **retrieval-augmented LLM pipelines.**  
-- Influenced vector databases and semantic search systems.
+### Impact
+- Core to **vector search** and **RAG systems**.  
+- Used in billions-scale semantic search engines.
 
 ---
 
-## ⚖️ 14. [LLMs as a Judge (2023)](https://lnkd.in/g25MdgT2)
+## 14. LLMs as a Judge (2023)
+📄 [Paper Link](https://lnkd.in/g25MdgT2)  
 **Authors:** Zheng et al.
 
-### 🔍 Summary
-Used LLMs themselves to **evaluate outputs of other LLMs**, automating benchmarking.
+### Overview
+LLMs used as **meta-evaluators** to assess the quality of other LLM outputs.
 
-### 💡 Key Insights
-- **Meta-Evaluation:** Models act as critics or judges.  
-- **Human Agreement:** 85% correlation with expert human ratings.  
-- **Automated Feedback Loops.**
+### Key Contributions
+- Achieved **85% agreement** with human evaluators.  
+- Enables **automated evaluation pipelines**.  
+- Introduces the concept of *AI evaluating AI.*
 
-### 🌍 Impact
-- Enabled **AI evaluation pipelines** without costly human annotation.  
-- Advanced *self-improvement* and *auto-alignment* systems.
+### Impact
+- Reduces human evaluation cost drastically.  
+- Enables *self-improving feedback loops* in AI systems.
 
 ---
 
-## 🧭 15. [DeepSeek-R1 (2025)](https://lnkd.in/gPHh3URb)
+## 15. DeepSeek-R1 (2025)
+📄 [Paper Link](https://lnkd.in/gPHh3URb)  
 **Authors:** DeepSeek AI
 
-### 🔍 Summary
-A modern milestone where **reinforcement learning meets structured reasoning**, producing *LLMs that think before they speak.*
+### Overview
+Represents the next generation of models — integrating **reinforcement learning** with **structured reasoning**.
 
-### 💡 Key Innovations
-- **Reinforcement Learning for Reasoning:** Models trained to plan, reflect, and verify.  
-- **Step-by-Step Logical Decomposition.**  
-- **Efficient Memory Utilization & Modularity.**
+### Key Contributions
+- Optimizes logical reasoning through **RL-based policy learning**.  
+- Models learn **multi-step deduction and verification**.  
+- Demonstrates **LLM 2.0 capabilities** — from text to thought.
 
-### 🌍 Impact
-- Represents **LLM 2.0 — from language to logic.**  
-- Paves the way for *autonomous scientific discovery.*
+### Impact
+- Symbolizes the **fusion of reasoning and autonomy**.  
+- A new era: *LLMs that think, verify, and plan.*
 
 ---
 
-## 🧩 Summary Table
+## 🧩 Summary Timeline
 
-| Year | Paper | Core Concept | Key Impact |
-|------|--------|--------------|-------------|
-| 2017 | Attention Is All You Need | Transformer | Foundation of modern NLP |
-| 2018 | BERT | Bidirectional pretraining | Transfer learning era |
-| 2020 | GPT-3 | Scaling laws & prompting | Emergent reasoning |
-| 2020 | T5 | Text-to-text | Unified task framework |
-| 2020 | Scaling Laws | Predictive scaling | Blueprint for LLM growth |
-| 2020 | RAG | Retrieval + Generation | Grounded responses |
+| Year | Paper | Core Concept | Major Contribution |
+|------|--------|--------------|--------------------|
+| 2017 | Attention Is All You Need | Transformers | Parallelism & attention-based modeling |
+| 2018 | BERT | Bidirectional pretraining | Transfer learning revolution |
+| 2020 | GPT-3 | Scaling laws | Few-shot learning & prompting |
+| 2020 | T5 | Text-to-text framework | Unified NLP |
+| 2020 | Scaling Laws | Empirical scaling | Predictable improvement |
+| 2020 | RAG | Retrieval + Generation | Knowledge grounding |
 | 2021 | LoRA | Efficient fine-tuning | Democratized adaptation |
-| 2022 | CoT | Reasoning via prompting | Multi-step logic |
-| 2022 | Self-Consistency | Voting reasoning | Reliability |
-| 2022 | Induction Heads | Mechanistic interpretability | Transparency |
+| 2022 | Chain-of-Thought | Reasoning via prompts | Stepwise logic |
+| 2022 | Self-Consistency | Multi-path reasoning | Robust inference |
+| 2022 | Induction Heads | Interpretability | In-context understanding |
 | 2022 | Instruction Tuning | Human alignment | Conversational models |
-| 2023 | Toolformer | Autonomous tool use | API-driven LLMs |
+| 2023 | Toolformer | API interaction | Agentic AI |
 | 2022 | ColBERTv2 | Efficient retrieval | Scalable search |
-| 2023 | LLMs as a Judge | Meta-evaluation | Automated benchmarking |
-| 2025 | DeepSeek-R1 | Structured reasoning via RL | LLM 2.0 evolution |
+| 2023 | LLMs as a Judge | Evaluation automation | Meta-evaluation |
+| 2025 | DeepSeek-R1 | RL for reasoning | Structured thought models |
 
 ---
 
 ## 🧭 Final Reflection
 
-From **Attention (2017)** to **Reasoning (2025)** —  
-this journey captures the *entire evolution* of natural language intelligence.
+From **Transformers (2017)** ➜ **Pretraining (2018)** ➜ **Scaling (2020)** ➜ **Reasoning (2022)** ➜ **Autonomy (2025)** —  
+this journey defines the intellectual DNA of modern AI.
 
-> 🗣️ *“If you understand these 15 papers, you understand how language itself became programmable.”*  
-> — *Srishti Gauraha*
+> *“If you understand these 15 papers, you understand how intelligence became language-aware — and how language became programmable.”*  
+> — **Srishti Gauraha**
 
 ---
 
-### ✨ Curated by [Srishti Gauraha](https://github.com/SrishtiGauraha)
-*For AI researchers, builders, and lifelong learners shaping the future of language intelligence.*
+<p align="center">
+✨ Curated by <a href="https://github.com/SrishtiGauraha">Srishti Gauraha</a><br>
+<em>For AI researchers, builders, and lifelong learners shaping the future of language intelligence.</em>
+</p>
